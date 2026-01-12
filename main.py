@@ -98,14 +98,14 @@ distance=[]
 time=[]
 
 for i in range(steps):
-    state1=rk4_step(lorenz,step,dt)
+    state1=rk4_step(lorenz,state1,dt)  # ✓ 'state1' is the state array
     state2=rk4_step(lorenz,state2,dt)
     
     d=np.linalg.norm(state1 -state2)
     distance.append(d)
     time.append(i*dt)
     
-plt.figure(figure=(8,5))
+plt.figure(figsize=(8,5))
 plt.plot(time,distance,color="orange")
 plt.yscale("log")
 plt.xlabel("Time")
@@ -113,4 +113,4 @@ plt.ylabel("DIstance between trajectories(log scale)")
 plt.title("Butterfly Efect:Sensitivity to Inital Conditions")
 plt.grid(True)
 plt.tight_layout()
-plt.show()     
+plt.show()
