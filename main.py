@@ -98,7 +98,7 @@ distance=[]
 time=[]
 
 for i in range(steps):
-    state1=rk4_step(lorenz,state1,dt)  # ✓ 'state1' is the state array
+    state1=rk4_step(lorenz,state1,dt)  
     state2=rk4_step(lorenz,state2,dt)
     
     d=np.linalg.norm(state1 -state2)
